@@ -1,4 +1,6 @@
-import type { Project } from '../../types';
+import type { Project } from '../../types'; 
+import { Github, ExternalLink } from 'lucide-react';
+import { categoryColors } from '../../data/categoryStyles';
 
 interface ProjectCardProps {
   project: Project;
@@ -6,45 +8,83 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <div className="bg-slate-800 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-300 border border-slate-700 flex flex-col h-full group">
+    <div className="group relative bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300 flex flex-col h-full">
       
-      <div className="p-6 flex flex-col flex-grow">
+      {/* 1. SECCION DE IMAGEN CON OVERLAY */}
+      <div className="relative h-48 w-full overflow-hidden">
         
-        <div className="flex justify-between items-start mb-4">
-            <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">
+        {/* La Imagen de fondo */}
+        <img 
+          src={project.image} 
+          alt={project.title} 
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+
+        {/* Badge de Categoria */}
+        <div className="absolute top-4 left-4 z-20">
+             <span className={`
+                px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-sm
+                ${categoryColors[project.category]} 
+             `}>
                 {project.category}
             </span>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border border-slate-600 text-slate-400">
+        </div>
+        <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-10">
+            
+            {/* Boton LIVE (Verde/Cyan) */}
+            {project.liveUrl && (
+                <a 
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-3 bg-cyan-500 rounded-full text-white hover:bg-cyan-400 hover:scale-110 transition-all shadow-lg shadow-cyan-500/30"
+                    title="Ver Demo en Vivo"
+                >
+                    <ExternalLink className="w-6 h-6" />
+                </a>
+            )}
+
+            {/* Boton GITHUB */}
+            {project.githubUrl && (
+                <a 
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-3 bg-slate-800 rounded-full text-white border border-slate-600 hover:bg-slate-700 hover:scale-110 transition-all shadow-lg"
+                    title="Ver Código"
+                >
+                    <Github className="w-6 h-6" />
+                </a>
+            )}
+        </div>
+      </div>
+
+      {/* 2. CONTENIDO DE LA TARJETA */}
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="flex justify-between items-start mb-2">
+            <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                {project.title}
+            </h3>
+            {/* Status pequeño a la derecha */}
+            <span className="text-[10px] border border-slate-600 px-2 py-0.5 rounded text-slate-400">
                 {project.status}
             </span>
         </div>
-        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-            {project.title}
-        </h3>
-        <p className="text-slate-400 text-sm mb-4 flex-grow leading-relaxed">
+        
+        <p className="text-slate-400 text-sm mb-4 line-clamp-3">
           {project.description}
         </p>
+
+        {/* Tech Stack */}
         <div className="flex flex-wrap gap-2 mt-auto">
           {project.techStack.map((tech) => (
-            <span key={tech} className="bg-slate-900/50 text-slate-300 text-xs px-2.5 py-1 rounded-lg border border-slate-700/50">
+            <span key={tech} className="bg-slate-900 text-slate-300 text-xs px-2.5 py-1 rounded-md border border-slate-700">
               {tech}
             </span>
           ))}
         </div>
       </div>
-      {project.link && (
-        <div className="bg-slate-900/30 px-6 py-4 border-t border-slate-700/50">
-          <a 
-            href={project.link} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-cyan-400 hover:text-cyan-300 text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all"
-          >
-            Ver Proyecto 
-            <span>→</span>
-          </a>
-        </div>
-      )}
     </div>
   );
 };

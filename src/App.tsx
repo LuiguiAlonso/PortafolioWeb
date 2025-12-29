@@ -5,7 +5,7 @@ import { AboutSection } from "./components/sections/AboutSection";
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen">
       <Header />
       <main>
         <HeroSection />
