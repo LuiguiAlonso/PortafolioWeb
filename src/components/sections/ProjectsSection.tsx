@@ -24,7 +24,7 @@ export function ProjectsSection() {
           <h2 className="text-4xl font-bold text-white mb-4">
             Mis <span className="text-cyan-400">Proyectos</span>
           </h2>
-          <p className="text-slate-400">Una selección de mis trabajos más destacados.</p>
+          <p className="text-slate-400">Una selección de mis trabajos más destacados en diferentes plataformas y tecnologías</p>
         </div>
 
         {/* Tabs */}
