@@ -18,13 +18,13 @@ export function ProjectsSection() {
     : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="min-h-screen flex flex-col justify-center py-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
             Mis <span className="text-cyan-400">Proyectos</span>
           </h2>
-          <p className="text-slate-400">Una selección de mis trabajos más destacados en diferentes plataformas y tecnologías</p>
+          <p className="text-slate-400">Una selección de algunos de mis trabajos en diferentes plataformas y tecnologías</p>
         </div>
 
         {/* Tabs */}
