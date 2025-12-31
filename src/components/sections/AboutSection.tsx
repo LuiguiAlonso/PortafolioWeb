@@ -3,19 +3,12 @@ import { technologies } from "../../data/about";
 export function AboutSection() {
   return (
     <section id="about" className="relative min-h-screen flex flex-col justify-center py-24 md:py-32 overflow-hidden">
-      
-      {/* ... (Fondos igual que antes) ... */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent opacity-50" />
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid gap-12 lg:grid-cols-12 items-center">
-          
-          {/* === COLUMNA IZQUIERDA: TEXTO (Ahora ocupa 8) === */}
-          {/* CAMBIO: De col-span-7 a col-span-8 */}
           <div className="lg:col-span-8 flex flex-col justify-center">
-            
-            {/* ... (Todo el contenido del texto se mantiene igual) ... */}
             <h2 className="mb-8 text-4xl font-bold text-white md:text-5xl tracking-tight">
               Sobre <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Mí</span>
             </h2>
@@ -48,10 +41,6 @@ export function AboutSection() {
               </div>
             </div>
           </div>
-
-          {/* === COLUMNA DERECHA: FOTO === */}
-          {/* CAMBIO CRÍTICO: De col-span-5 a col-span-4 */}
-          {/* Al sumar 8 + 4 = 12, se mantienen en la misma línea */}
           <div className="lg:col-span-4 relative flex justify-center items-center mt-12 lg:mt-0 lg:-translate-y-10 lg:translate-x-0">
              
              <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-purple-500/20 rounded-3xl blur-2xl transform rotate-6 scale-95 -z-10" />
@@ -66,7 +55,6 @@ export function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-60" />
              </div>
           </div>
-
         </div>
       </div>
     </section>

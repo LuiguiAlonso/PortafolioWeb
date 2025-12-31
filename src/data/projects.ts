@@ -3,34 +3,16 @@ import type { Project } from '../types';
 export const projects: Project[] = [
     {
         id: 1,
-        title: "E-Commerce Platform",
-        description: "Plataforma completa con carrito de compras y pasarela de pagos.",
-        techStack: ["React", "Node.js", "MongoDB"],
-        category: "WEB",
-        status: "MVP",
-        image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80", 
-        githubUrl: "https://github.com",
-        liveUrl: "https://google.com"
-    },
-    {
-        id: 2,
-        title: "Space Explorer Game",
-        description: "Juego de exploración espacial con físicas realistas en 3D.",
-        techStack: ["Unity", "C#", "Blender"],
+        title: "BounceMath",
+        description: "Juego Serio desarrollado como proyecto de investigacion para fortalecer el aprendizaje de matematicas. Implementé un backend con Firebase para gestionar la autenticación de usuarios, guardado de progreso en la nube y un Leaderboard basado en un sistema de recompensas. Incluye un módulo de feedback in-game para la comunicación directa con usuarios.",
+        techStack: ["Unity", "C#", "Firebase"],
         category: "GAME",
-        status: "PRODUCTION",
-        image: "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=800&q=80", 
-        githubUrl: "https://github.com",
-        liveUrl: "#"
+        status: "PRODUCTION", 
+        image: "/bounce_math.png", 
+        githubUrl: "https://github.com/LuiguiAlonso/BounceMath",
+        youtubeUrl: "https://youtube.com/watch?v=tu-trailsaser",
+        liveUrl: "https://play.google.com/store/apps/details?id=com.bouncemath.app",
+        demoLinkText: "Probar en Play Store"
     },
-    {
-        id: 3,
-        title: "Finance Tracker App",
-        description: "App móvil para gestión de finanzas personales.",
-        techStack: ["Flutter", "Dart", "Firebase"],
-        category: "MOBILE",
-        status: "PROTOTYPE",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-        githubUrl: "https://github.com"
-    }
+    // otros proyectos
 ];
